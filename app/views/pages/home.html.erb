@@ -1,2 +1,60 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_url 'homepage/camping_car_depardon.jpg' %>);">
+  <div class="banner-content">
+    <h1>Abolis les frontières </h1>
+    <p>Be limitless.</p>
+    </div>
+  <div class="searchbar-wrapper">
+    <div class="form-container">
+      <form class="form-inline">
+        <div class="form-group">
+            <input type="text" class="form-control">
+            <input type="text" class="form-control">
+            <input type="text" class="form-control">
+            <button class="btn btn-danger" type= "button" id="search-button">Rechercher</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="card-grid-wraper bg-light-grey ">
+  <div class="container bg-light-grey">
+    <div class="grid-header">
+      <h2><strong>Louez un camping car</strong></h2>
+      <h3>Et voyagez partout en Europe</h3>
+    </div>
+  </div>
+</div>
+
+<div class="card-grid-wraper bg-light-grey">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-3">
+        <div class="card">
+          <div class="card-image" style="background-image:url(<%=image_url("homepage/roulotte.jpg") %>);")>
+          </div>
+          <div class="card-footer">
+            <div class="category">
+              <p>Superbe roulotte</p>
+            </div>
+            <div class="model">
+              <p>Gipsy</p>
+            </div>
+            <div class="description">
+               <div class="sleep">
+                8
+               </div>
+               <div class="capacity">
+                5
+               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
