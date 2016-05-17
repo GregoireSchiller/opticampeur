@@ -53,16 +53,28 @@
   border-radius: 4px;
   box-shadow: 1px 1px 2px #B3B3B3;
   background-color: white;
+  width:350px;
+  height:350px;
+  position: relative;
  }
 
  .card-image{
   background-size: cover !important;
-  height:190px;
+  background-position: center center;
+  height:220px;
 }
 
 .grid-header{
   text-align: center;
   margin-bottom: 40px;
+}
+
+.card-image .avatar {
+  width: 70px;
+  position:absolute;
+  top:180px;
+  left:280px;
+
 }
 
 
