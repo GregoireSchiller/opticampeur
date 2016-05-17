@@ -4,4 +4,5 @@ class Booking < ActiveRecord::Base
   has_one :user_review, dependent: :destroy
   has_one :camping_car_review, dependent: :destroy
   validates :check_in, :check_out, presence: true
+  validates :camping_car, presence: true
 end
