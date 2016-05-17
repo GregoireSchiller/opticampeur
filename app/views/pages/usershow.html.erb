@@ -1,0 +1,102 @@
+<div class="wrapper bg-light-grey text-center padded-show">
+  <div class="profile_picture">
+    <%= image_tag "profile.jpg", class: 'avatar-very-large-bordered' %>
+  </div>
+  <h3> <%= 'Put email address here' %> </h3>
+</div>
+
+
+<div class="tabs">
+  <a class="tab active" href="#" data-target="#campingcarsibooked">
+    <h3>Camping cars I booked</h3>
+  </a>
+  <a class="tab" href="#" data-target="#campingcardirented">
+    <h3>Camping cars I rented</h3>
+  </a>
+  <a class="tab" href="#" data-target="#mycampingcars">
+    <h3>My camping cars</h3>
+  </a>
+</div>
+
+<div class="tab-content" id="campingcarsibooked">
+  <div class="wrapper bg-light-grey">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-lg-4 col-sm-12">
+          <div class="booking-detail">
+            <div class="camping-car-picture">
+              <%= image_tag "logocamping.jpg" %>
+            </div>
+            <div class="profile-picture">
+              <%= image_tag "profile.jpg", class: 'avatar-large-bordered' %>
+            </div>
+            <div class="booking-description">
+              <div class="booking-row">
+                <%= "Camping car model" %>
+              </div>
+              <div class="booking-row">
+                <%= "Booking dates" %>
+              </div>
+              <div class="booking-row">
+                <%= "Sleep capacity" %>
+              </div>
+              <div class="booking-row">
+                <%= "Total price" %>
+              </div>
+              <div class="booking-row">
+                <%= link_to "Review camping car", root_path, {class: 'btn btn-primary' } %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="tab-content hidden" id="campingcardirented">
+  <div class="wrapper bg-light-grey">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-lg-4 col-sm-12">
+          <div class="booking-detail">
+            <div class="camping-car-picture">
+              <%= image_tag "logocamping.jpg" %>
+            </div>
+            <div class="profile-picture">
+              <%= image_tag "profile.jpg", class: 'avatar-large-bordered' %>
+            </div>
+            <div class="booking-description">
+              <div class="booking-row">
+                <%= "Camping car model" %>
+              </div>
+              <div class="booking-row">
+                <%= "Booking dates" %>
+              </div>
+              <div class="booking-row">
+                <%= "Sleep capacity" %>
+              </div>
+              <div class="booking-row">
+                <%= "Total price" %>
+              </div>
+              <div class="booking-row">
+                <%= link_to "Review user", root_path, {class: 'btn btn-primary' } %>
+              </div>
+              <div class="booking-row">
+                <%= link_to "Edit my camping car", root_path, {class: 'btn btn-primary' } %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="tab-content hidden" id="mycampingcars">
+  <h3>put camping cars cards</h3>
+</div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="app/assets/javascript/tabs.js"></script>
