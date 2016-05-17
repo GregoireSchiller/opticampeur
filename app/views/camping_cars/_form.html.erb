@@ -1,0 +1,8 @@
+<%= simple_form_for @camping_car do |f| %>
+  <%= f.input :car_model, input_html: { placeholder: "Modèle" } %>
+  <%= f.input :category, collection: CampingCar::CATEGORIES, include_blank: "Sélectionnez une catégorie" %>
+  <%= f.input :sleep_capacity, input_html: { placeholder: "Nombre de couchages" } %>
+  <%= f.input :capacity_grey_card, input_html: { placeholder: "Nombre de places assises" } %>
+  <%= f.input :price_per_day, input_html: { placeholder: "Prix journalier" } %>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>

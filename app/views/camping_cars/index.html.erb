@@ -1,0 +1,9 @@
+<h1>Camping cars list</h1>
+
+<% @camping_cars.each do |camping_car| %>
+  <h2><%= link_to camping_car.car_model, camping_car_path(camping_car) %></h2>
+  <p><%= camping_car.category %></p>
+  <p><%= camping_car.sleep_capacity %></p>
+  <p><%= camping_car.capacity_grey_card %></p>
+  <p><%= camping_car.price_per_day %></p>
+<% end %>
