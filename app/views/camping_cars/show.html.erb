@@ -32,5 +32,8 @@
 </div>
 
 
-
-
+<%= simple_form_for [@booking, @user_review] do |f| %>
+  <%= f.input :rating %>
+  <%= f.input :comment %>
+  <%= f.button :submit %>
+<% end %>
