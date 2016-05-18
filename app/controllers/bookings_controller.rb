@@ -1,8 +1,9 @@
 class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
+    @booking.user = current_user
     if @booking.save
-      redirect_to camping_cars_path
+      redirect_to user_path(@booking.user)
     else
       @camping_car = @booking.camping_car
       render 'camping_cars/show'

@@ -2,41 +2,40 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
- *
 
- .banner {
-   color: white;
-   text-align: center;
-   height: 65vh;
-   /* if you have a 70px navbar => height: calc(100vh - 70px); */
-   background-size: cover !important;
-   background-position: center center ;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: space-between;
- }
- .banner h1 {
-   font-size: 50px;
-   font-weight: bold;
-   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
- }
- .banner p {
-   font-size: 20px;
-   font-weight: lighter;
-   color: rgba(255, 255, 255, 0.7);
-   margin-bottom: 20px;
- }
+.banner {
+ color: white;
+ text-align: center;
+ height: 65vh;
+ /* if you have a 70px navbar => height: calc(100vh - 70px); */
+ background-size: cover !important;
+ background-position: center center ;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: space-between;
+}
+.banner h1 {
+ font-size: 50px;
+ font-weight: bold;
+ text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+}
+.banner p {
+ font-size: 20px;
+ font-weight: lighter;
+ color: rgba(255, 255, 255, 0.7);
+ margin-bottom: 20px;
+}
 
- .banner-content{
-    margin-top: 200px;
- }
+.banner-content{
+  margin-top: 200px;
+}
 
 
 .searchbar-wrapper {
-  width: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  padding:30px;
+width: 100%;
+background: rgba(0, 0, 0, 0.4);
+padding:30px;
 
 }
 
@@ -56,7 +55,7 @@
   width:350px;
   height:350px;
   position: relative;
-  margin-top: 10px;
+  margin-bottom: 20px;
  }
 
  .card-image{
@@ -94,14 +93,32 @@
 .category {
   font-weight: bold;
   padding-top: 10px;
+  margin-left: 5px;
 }
 
 .model {
   margin-top: 20px;
+  margin-left: 5px;
 }
 
 .capacity {
   padding-left: 10px;
+  margin-left: 5px;
 }
 
+.sleep {
+  margin-left: 5px;
+}
 
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  z-index:2;
+  background: black;
+  opacity: 0;
+}
+.card-link:hover{
+  opacity: 0.1;
+}
