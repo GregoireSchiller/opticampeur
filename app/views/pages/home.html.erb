@@ -22,6 +22,7 @@
     <div class="grid-header">
       <h2><strong>Louez un camping car</strong></h2>
       <h3>Et voyagez partout en Europe</h3>
+      <h4>Choisissez parmi plus de <%= link_to (CampingCar.count.to_s + " camping-cars"), camping_cars_path %> disponibles à la location</h4>
     </div>
   </div>
 </div>
@@ -29,39 +30,36 @@
 <div class="card-grid-wraper bg-light-grey">
   <div class="container">
     <div class="row">
-        <% @selected_camping_cars.each do |camping_car| %>
-            <div class="col-xs-12 col-sm-4">
-              <div class="card">
-                <div class="card-image" style="background-image:url(<%=image_url("homepage/cc" + (1..15).to_a.sample.to_s + ".jpg") %>);")>
-                  <img src="<%=image_url("homepage/Boris-Paillard.jpg") %>" class="avatar")>
-                  <div class="card-price text-center">
-                    <p><strong><%=camping_car.price_per_day%></strong><%='€/jour'%></p>
-                    <p>de location</p>
-                  </div>
+      <% @selected_camping_cars.each do |camping_car| %>
+        <div class="col-xs-12 col-sm-4">
+          <div class="card">
+            <div class="card-image" style="background-image: url(<%=image_url("homepage/cc" + (1..15).to_a.sample.to_s + ".jpg") %>);">
+              <img src="<%=image_url("homepage/u" + (1..15).to_a.sample.to_s + ".jpg") %>" class="avatar">
+              <div class="card-price text-center">
+                <p><strong><%=camping_car.price_per_day%></strong><%='€/jour'%></p>
+                <p>de location</p>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="category">
+                <p><%=camping_car.category%></p>
+              </div>
+              <div class="model">
+                <p><%=camping_car.car_model%></p>
+              </div>
+              <div class="card-description">
+                <div class="sleep">
+                  <p><%=camping_car.sleep_capacity%> <i class="fa fa-bed" style="color:#7AAFB7"></i></p>
                 </div>
-                <div class="card-footer">
-                  <div class="category">
-                    <p><%=camping_car.category%></p>
-                  </div>
-                  <div class="model">
-                    <p><%=camping_car.car_model%></p>
-                  </div>
-                  <div class="card-description">
-                     <div class="sleep">
-                      <p><%=camping_car.sleep_capacity%> <i class="fa fa-bed" style="color:#7AAFB7"></i></p>
-                     </div>
-                     <div class="capacity">
-                      <p><%=camping_car.capacity_grey_card%> <i class="fa fa-car" style="color:#7AAFB7" ></i></p>
-                     </div>
-                  </div>
+                <div class="capacity">
+                  <p><%=camping_car.capacity_grey_card%> <i class="fa fa-car" style="color:#7AAFB7" ></i></p>
                 </div>
               </div>
             </div>
-        <%end%>
-      </div>
+            <%= link_to "", camping_car_path(camping_car), class: "card-link" %>
+          </div>
+        </div>
+      <%end%>
     </div>
   </div>
-
-
-
-
+</div>
