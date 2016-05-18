@@ -1,17 +1,36 @@
-<h1>Camping car details</h1>
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <h1>Put large card from Edouard</h1>
+        <h1>Le camping car</h1>
+        <h2><%= @camping_car.car_model %></h2>
+        <p><%= @camping_car.category %></p>
+        <p><%= @camping_car.sleep_capacity %></p>
+        <p><%= @camping_car.capacity_grey_card %></p>
+        <p><%= @camping_car.price_per_day %></p>
+        <%= link_to "Modifier les informations", edit_camping_car_path(@camping_car) %>
+        <%= link_to "Supprimer camping-car", camping_car_path(@camping_car), method: :delete %>
+      </div>
 
-<h2><%= @camping_car.car_model %></h2>
-<p><%= @camping_car.category %></p>
-<p><%= @camping_car.sleep_capacity %></p>
-<p><%= @camping_car.capacity_grey_card %></p>
-<p><%= @camping_car.price_per_day %></p>
+      <div class="col-sm-4 hidden-xs hidden-sm">
+        <div class="fixed">
+          <div class='col-sm-8 col-sm-offset-2 col-md-offset-0 col-md-12'>
+            <h2>Price per day</h2>
+            <h2>Book your trip</h2>
+            <%= simple_form_for @booking do |f| %>
+              <%= f.input :check_in %>
+              <%= f.input :check_out %>
+              <%= f.input :camping_car_id, as: :hidden, input_html: { value: @camping_car.id } %>
+              <%= f.button :submit %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= link_to "Modifier les informations", edit_camping_car_path(@camping_car) %>
-<%= link_to "Supprimer camping-car", camping_car_path(@camping_car), method: :delete %>
 
-<%= simple_form_for @booking do |f| %>
-  <%= f.input :check_in %>
-  <%= f.input :check_out %>
-  <%= f.input :camping_car_id, as: :hidden, input_html: { value: @camping_car.id } %>
-  <%= f.button :submit %>
-<% end %>
+
+
