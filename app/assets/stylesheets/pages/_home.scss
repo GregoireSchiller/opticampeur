@@ -62,6 +62,7 @@
   background-size: cover !important;
   background-position: center center;
   height:220px;
+  position:relative;
 }
 
 .grid-header{
@@ -74,7 +75,32 @@
   position:absolute;
   top:180px;
   left:280px;
+}
 
+.card-description {
+  display:flex;
+  flex-direction:row;
+  position:absolute;
+  bottom: 2px;
+}
+
+.card-price {
+  background: rgba(0, 0, 0, 0.4);
+  color:white;
+  width:100px;
+}
+
+.category {
+  font-weight: bold;
+  padding-top: 10px;
+}
+
+.model {
+  margin-top: 20px;
+}
+
+.capacity {
+  padding-left: 10px;
 }
 
 

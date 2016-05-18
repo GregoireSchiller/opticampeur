@@ -1,32 +1,50 @@
-<div class="wrapper">
+<div class="wrapper bg-light-grey padded">
   <div class="container">
     <div class="row">
       <div class="col-md-8">
-        <h1>Put large card from Edouard</h1>
-        <h1>Le camping car</h1>
-        <h2><%= @camping_car.car_model %></h2>
-        <p><%= @camping_car.category %></p>
-        <p><%= @camping_car.sleep_capacity %></p>
-        <p><%= @camping_car.capacity_grey_card %></p>
-        <p><%= @camping_car.price_per_day %></p>
-        <%= link_to "Modifier les informations", edit_camping_car_path(@camping_car) %>
-        <%= link_to "Supprimer camping-car", camping_car_path(@camping_car), method: :delete %>
+        <div class="product-section">
+
+          <h1>Put large card from Edouard</h1>
+            <p><%= @camping_car.car_model %></p>
+            <p><%= @camping_car.category %></p>
+          <h2>Le camping-car</h2>
+
+            <p>Nombre de places : <strong><%= @camping_car.capacity_grey_card %></strong></p>
+            <p>Nombre de couchages : <strong><%= @camping_car.sleep_capacity %></strong></p>
+          <h2>Les reviews</h2>
+          <div class="actions text-center">
+            <%= link_to "Modifier mon camping car", edit_camping_car_path(@camping_car), {class: "btn btn-primary"} %>
+            <%= link_to "Supprimer mon camping-car", camping_car_path(@camping_car), method: :delete, :class => "btn btn-primary" %>
+          </div>
+        </div>
       </div>
 
       <div class="col-sm-4 hidden-xs hidden-sm">
         <div class="fixed">
           <div class='col-sm-8 col-sm-offset-2 col-md-offset-0 col-md-12'>
-            <h2>Price per day</h2>
-            <h2>Book your trip</h2>
-            <%= simple_form_for @booking do |f| %>
-              <%= f.input :check_in %>
-              <%= f.input :check_out %>
-              <%= f.input :camping_car_id, as: :hidden, input_html: { value: @camping_car.id } %>
-              <%= f.button :submit %>
-            <% end %>
+            <div class="price-per-day">
+              <p>A partir de <%= @camping_car.price_per_day %> € par jour</p>
+            </div>
+            <div class="book-your-trip-section">
+              <%= simple_form_for @booking do |f| %>
+              <div class="row">
+                <div class="col-lg-6 col-md-12 col-sm-6">
+                  <%= f.input :check_in, label: false, placeholder: "Date de départ" %>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-6">
+                  <%= f.input :check_out, label: false, placeholder: "Date d'arrivée" %>
+                </div>
+              </div>
+              <div class="">
+                <%= f.button :submit, "Demande de location", class: "btn booking-button" %>
+              </div>
+                <%= f.input :camping_car_id, as: :hidden, input_html: { value: @camping_car.id } %>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
