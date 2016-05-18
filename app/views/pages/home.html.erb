@@ -32,10 +32,10 @@
         <% @selected_camping_cars.each do |camping_car| %>
             <div class="col-xs-12 col-sm-4">
               <div class="card">
-                <div class="card-image" style="background-image:url(<%=image_url("homepage/roulotte.jpg") %>);")>
+                <div class="card-image" style="background-image:url(<%=image_url("homepage/cc" + (1..15).to_a.sample.to_s + ".jpg") %>);")>
                   <img src="<%=image_url("homepage/Boris-Paillard.jpg") %>" class="avatar")>
-                  <div class="card-price">
-                    <p><%=camping_car.price_per_day + '€/jour'%></p>
+                  <div class="card-price text-center">
+                    <p><strong><%=camping_car.price_per_day%></strong><%='€/jour'%></p>
                     <p>de location</p>
                   </div>
                 </div>
