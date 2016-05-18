@@ -15,3 +15,9 @@
   <%= f.input :camping_car_id, as: :hidden, input_html: { value: @camping_car.id } %>
   <%= f.button :submit %>
 <% end %>
+
+<%= simple_form_for [@booking, @user_review] do |f| %>
+  <%= f.input :rating %>
+  <%= f.input :comment %>
+  <%= f.button :submit %>
+<% end %>
