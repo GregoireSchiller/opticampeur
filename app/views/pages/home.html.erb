@@ -6,9 +6,9 @@
   <div class="searchbar-wrapper">
     <div class="form-container">
       <form class="form-inline">
-        <div class="form-group">
-            <input type="text" class="form-control">
-            <input type="text" class="form-control">
+        <div class="form-group" >
+            <input type="text" class="form-control datepicker">
+            <input type="text" class="form-control datepicker">
             <input type="text" class="form-control">
             <button class="btn btn-danger" type= "button" id="search-button">Rechercher</button>
         </div>
@@ -63,5 +63,15 @@
   </div>
 
 
-
+<% content_for(:after_js) do %>
+    <% javascript_tag do %>
+    $('.datepicker').datepicker({
+        format: "dd/mm/yyyy",
+        weekStart: 1,
+        startDate: "today",
+        maxViewMode: 0,
+        language: "fr"
+    });
+  <%end%>
+<%end%>
 
