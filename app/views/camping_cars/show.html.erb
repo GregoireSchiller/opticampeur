@@ -1,20 +1,22 @@
-<div class="wrapper bg-light-grey padded">
+<div class="wrapper bg-light-grey small-padding">
   <div class="container">
     <div class="row">
       <div class="col-md-8">
         <div class="product-section">
-
-          <h1>Put large card from Edouard</h1>
-            <p><%= @camping_car.car_model %></p>
-            <p><%= @camping_car.category %></p>
-          <h2>Le camping-car</h2>
-
-            <p>Nombre de places : <strong><%= @camping_car.capacity_grey_card %></strong></p>
-            <p>Nombre de couchages : <strong><%= @camping_car.sleep_capacity %></strong></p>
-          <h2>Les reviews</h2>
-          <div class="actions text-center">
-            <%= link_to "Modifier mon camping car", edit_camping_car_path(@camping_car), {class: "btn btn-primary"} %>
-            <%= link_to "Supprimer mon camping-car", camping_car_path(@camping_car), method: :delete, :class => "btn btn-primary" %>
+          <%= image_tag "campingcar.jpg", class: "camping-car-picture" %>
+          <div class="camping-car-description">
+            <h3><%= @camping_car.car_model %></h3>
+            <h4><%= @camping_car.category %></h4>
+          </div>
+          <div class="camping-car-details">
+            <h2>Le camping-car</h2>
+              <p>Nombre de places : <strong><%= @camping_car.capacity_grey_card %></strong></p>
+              <p>Nombre de couchages : <strong><%= @camping_car.sleep_capacity %></strong></p>
+            <h2>Les reviews</h2>
+            <div class="actions text-center">
+              <%= link_to "Modifier mon camping car", edit_camping_car_path(@camping_car), {class: "btn btn-primary"} %>
+              <%= link_to "Supprimer mon camping-car", camping_car_path(@camping_car), method: :delete, :class => "btn btn-primary" %>
+            </div>
           </div>
         </div>
       </div>
