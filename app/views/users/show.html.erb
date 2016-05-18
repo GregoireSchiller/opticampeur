@@ -93,14 +93,14 @@
                   <div class="booking-row">
                     <p> <%= booking.camping_car.price_per_day %> € par jour</p>
                   </div>
-                  <% if booking.user_review != nil %>
+                  <% if booking.camping_car_review != nil %>
                     <div class="booking-row">
-                      <p> Note : <%= booking.user_review.rating %></p>
+                      <p> Note : <%= booking.camping_car_review.rating %></p>
                     </div>
                   <% end %>
-                  <% if booking.user_review != nil %>
+                  <% if booking.camping_car_review != nil %>
                   <div class="booking-row">
-                    <p>Commentaire : <%= booking.user_review.comment %></p>
+                    <p>Commentaire : <%= booking.camping_car_review.comment %></p>
                   </div>
                 <% end %>
                   <div class="booking-row">
