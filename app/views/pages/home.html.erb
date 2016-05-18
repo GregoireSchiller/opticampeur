@@ -29,32 +29,38 @@
 <div class="card-grid-wraper bg-light-grey">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-3">
-        <div class="card">
-          <div class="card-image" style="background-image:url(<%=image_url("homepage/roulotte.jpg") %>);")>
-            <img src="<%=image_url("homepage/Boris-Paillard.jpg") %>" class="avatar")>
-          </div>
-          <div class="card-footer">
-            <div class="category">
-              <p>Superbe roulotte</p>
+        <% @selected_camping_cars.each do |camping_car| %>
+            <div class="col-xs-12 col-sm-4">
+              <div class="card">
+                <div class="card-image" style="background-image:url(<%=image_url("homepage/roulotte.jpg") %>);")>
+                  <img src="<%=image_url("homepage/Boris-Paillard.jpg") %>" class="avatar")>
+                  <div class="card-price">
+                    <p><%=camping_car.price_per_day + '€/jour'%></p>
+                    <p>de location</p>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <div class="category">
+                    <p><%=camping_car.category%></p>
+                  </div>
+                  <div class="model">
+                    <p><%=camping_car.car_model%></p>
+                  </div>
+                  <div class="card-description">
+                     <div class="sleep">
+                      <p><%=camping_car.sleep_capacity%> <i class="fa fa-bed" style="color:#7AAFB7"></i></p>
+                     </div>
+                     <div class="capacity">
+                      <p><%=camping_car.capacity_grey_card%> <i class="fa fa-car" style="color:#7AAFB7" ></i></p>
+                     </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="model">
-              <p>Gipsy</p>
-            </div>
-            <div class="description">
-               <div class="sleep">
-                8
-               </div>
-               <div class="capacity">
-                5
-               </div>
-            </div>
-          </div>
-        </div>
+        <%end%>
       </div>
     </div>
   </div>
-</div>
 
 
 
