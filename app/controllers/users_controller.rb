@@ -1,7 +1,13 @@
 class UsersController < ApplicationController
 
   def show
+    @user_camping_car_bookings = []
     @user = User.find(params[:id])
+    @user_bookings = @user.bookings
+    @user_camping_car = @user.camping_cars
+    @user_camping_car.each do |camping_car|
+      @user_camping_car_bookings << camping_car.bookings
+    end
   end
 
   def new

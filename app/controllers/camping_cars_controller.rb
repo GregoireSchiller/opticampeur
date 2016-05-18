@@ -7,7 +7,6 @@ class CampingCarsController < ApplicationController
 
   def show
     @booking = Booking.new
-    @user_review = UserReview.new
   end
 
   def new

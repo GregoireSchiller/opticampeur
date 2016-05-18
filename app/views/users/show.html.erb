@@ -1,0 +1,15 @@
+<h1>Votre profil</h1>
+
+<h2>Vos locations en tant que locataire</h2>
+<% @user_bookings.each do |booking| %>
+  <p><%= booking.camping_car.car_model %></p>
+  <p><%= booking.user_review %></p>
+  <p><%= link_to "Notez votre expérience", new_booking_camping_car_review_path(booking) %></p>
+<% end %>
+<hr>
+<h2>Vos locations en tant que loueur</h2>
+<% @user_camping_car_bookings.each do |booking| %>
+  <p><%= booking.camping_car.car_model %></p>
+  <p><%= booking.camping_car_review %></p>
+  <p><%= link_to "Notez votre locataire", new_booking_user_review_path(booking) %></p>
+<% end %>
