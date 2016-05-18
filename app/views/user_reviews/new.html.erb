@@ -1,0 +1,6 @@
+<%= simple_form_for [@booking, @user_review] do |f| %>
+  <%= f.input :rating, :collection => 1..5, include_blank: "Donnez une note" %>
+  <%= f.input :comment, input_html: { placeholder: "Écrivez votre commentaire" } %>
+  <%= f.input :booking_id, :as => :hidden, :input_html => { :value => params[:booking_id] } %>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>

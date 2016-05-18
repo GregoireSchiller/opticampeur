@@ -1,5 +1,7 @@
 class CampingCarReviewsController < ApplicationController
+
   def new
+    set_booking
     @camping_car_review = CampingCarReview.new
   end
 
@@ -14,7 +16,11 @@ class CampingCarReviewsController < ApplicationController
 
   private
 
+  def set_booking
+    @booking = Booking.find(params[:booking_id])
+  end
+
   def camping_car_review_params
-    params.require(:camping_car_review).permit(:rating, :comment)
+    params.require(:camping_car_review).permit(:rating, :comment, :booking_id)
   end
 end
