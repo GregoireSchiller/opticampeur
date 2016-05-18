@@ -8,7 +8,30 @@
 require 'open-uri'
 require 'nokogiri'
 
+User.destroy_all
 CampingCar.destroy_all
+Booking.destroy_all
+UserReview.destroy_all
+CampingCarReview.destroy_all
+
+100.times do
+  user = User.new({
+    email: Faker::Internet.email,
+    password: Faker::Internet.password(8),
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    date_of_birth: Faker::Date.between(80.years.ago, 18.years.ago),
+    nationality: Faker::Address.country,
+    address: Faker::Address.street_address,
+    zip_code: Faker::Address.zip_code,
+    city: Faker::Address.city,
+    country: Faker::Address.country,
+    phone_number: Faker::PhoneNumber.cell_phone
+  })
+  user.save
+end
+
+puts "100 users generated"
 
 for i in 1..131 do
   url = "https://www.jelouemoncampingcar.com/louer-un-camping-car-entre-particuliers/?page=#{i}"
@@ -20,6 +43,31 @@ for i in 1..131 do
     sleep_capacity = element.search('.card_content .card_content_footer.clearfix .places span').last.children.text
     capacity_grey_card = element.search('.card_content .card_content_footer.clearfix .places span').first.children.text
     price_per_day = element.search('.card_top .card_top_price').children.children.text.gsub(/\D/,'')
-    CampingCar.create(category: category, car_model: car_model, sleep_capacity: sleep_capacity, capacity_grey_card: capacity_grey_card, price_per_day: price_per_day)
+    camping_car = CampingCar.new(category: category, car_model: car_model, sleep_capacity: sleep_capacity, capacity_grey_card: capacity_grey_card, price_per_day: price_per_day)
+    camping_car.user = User.order("RANDOM()").first
+    camping_car.save
   end
+  puts "page #{i}/131 done (scrapping camping cars)"
+end
+
+500.times do
+  booking = Booking.new({
+    check_in: Faker::Date.between(2.years.ago, 6.months.ago),
+    check_out: Faker::Date.between(6.months.ago, Date.today)
+  })
+  booking.user = User.order("RANDOM()").first
+  booking.camping_car = CampingCar.order("RANDOM()").first
+  booking.save
+  user_review = UserReview.new({
+    rating: (1..5).to_a.sample,
+    comment: Faker::Lorem.sentence
+  })
+  user_review.booking = booking
+  user_review.save
+  camping_car_review = CampingCarReview.new({
+    rating: (1..5).to_a.sample,
+    comment: Faker::Lorem.sentence
+  })
+  camping_car_review.booking = booking
+  camping_car_review.save
 end
