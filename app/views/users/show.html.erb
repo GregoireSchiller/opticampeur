@@ -1,29 +1,8 @@
-<h1>Votre profil</h1>
-
-<% @user_bookings.each do |booking| %>
-<h2>Vos locations en tant que locataire</h2>
-  <p><%= booking.camping_car.car_model %></p>
-  <p><%= booking.user_review.rating %></p>
-  <p><%= booking.user_review.comment %></p>
-  <p><%= link_to "Notez votre loueur", new_booking_camping_car_review_path(booking) %></p>
-<% end %>
-<hr>
-<h2>Vos locations en tant que loueur</h2>
-<% @user_camping_cars.each do |camping_car| %>
-
-  <% camping_car.bookings.each do |booking| %>
-  <p><%= booking.camping_car.car_model %></p>
-  <p><%= booking.camping_car_review.rating %></p>
-  <p><%= booking.camping_car_review.comment %></p>
-  <p><%= link_to "Notez votre locataire", new_booking_user_review_path(booking) %></p>
-  <% end %>
-<% end %>
-
-<div class="wrapper bg-light-grey text-center padded-show">
+<div class="wrapper bg-light-grey text-center padded-show information">
   <div class="profile_picture">
     <%= image_tag "profile.jpg", class: 'avatar-very-large-bordered' %>
   </div>
-  <h3> <%= 'Put email address here' %> </h3>
+  <h3> <%= @user.email %> </h3>
 </div>
 
 
@@ -31,7 +10,7 @@
   <a class="tab active" href="#" data-target="#campingcarsibooked">
     <h3>Camping cars I booked</h3>
   </a>
-  <a class="tab" href="#" data-target="#campingcardirented">
+  <a class="tab" href="#" data-target="#campingcarsirented">
     <h3>Camping cars I rented</h3>
   </a>
   <a class="tab" href="#" data-target="#mycampingcars">
@@ -43,77 +22,103 @@
   <div class="wrapper bg-light-grey">
     <div class="container text-center">
       <div class="row">
-
-        <div class="col-lg-4 col-sm-12">
-          <div class="booking-detail">
-            <div class="">
-              <%= image_tag "campingcar.jpg", class: "camping-car-picture" %>
-            </div>
-            <div class="profile-picture">
-              <%= image_tag "profile.jpg", class: 'avatar-large-bordered' %>
-            </div>
-            <div class="booking-description">
-              <div class="booking-row">
-                <%= "Camping car model" %>
+        <% @user_bookings.each do |booking| %>
+          <div class="col-lg-4 col-sm-12">
+            <div class="booking-detail">
+              <div class="">
+                <%= image_tag "campingcar.jpg", class: "camping-car-picture" %>
               </div>
-              <div class="booking-row">
-                <%= "Booking dates" %>
+              <div class="profile-picture">
+                <%= image_tag "profile.jpg", class: 'avatar-large-bordered' %>
               </div>
-              <div class="booking-row">
-                <%= "Sleep capacity" %>
-              </div>
-              <div class="booking-row">
-                <%= "Total price" %>
-              </div>
-              <div class="booking-row">
-                <%= link_to "Review camping car", root_path, {class: 'btn btn-primary' } %>
+              <div class="booking-description">
+                <div class="booking-row">
+                  <p>Modèle : <%= booking.camping_car.car_model %></p>
+                </div>
+                <div class="booking-row">
+                  <p> Du <%= booking.check_in %> au <%= booking.check_out %> </p>
+                </div>
+                <div class="booking-row">
+                  <p>Capacité de couchage : <%= booking.camping_car.sleep_capacity %> </p>
+                </div>
+                <div class="booking-row">
+                  <p> <%= booking.camping_car.price_per_day %> € par jour</p>
+                </div>
+                <% if booking.user_review != nil %>
+                  <div class="booking-row">
+                    <p> Note : <%= booking.user_review.rating %></p>
+                  </div>
+                <% end %>
+                <% if booking.user_review != nil %>
+                  <div class="booking-row">
+                    <p>Commentaire : <%= booking.user_review.comment %></p>
+                  </div>
+                <% end %>
+                <div class="booking-row">
+                  <%= link_to "Noter cette camping car", new_booking_camping_car_review_path(booking), {class: 'btn btn-primary' } %>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
 
-<div class="tab-content hidden" id="campingcardirented">
+<div class="tab-content hidden" id="campingcarsirented">
   <div class="wrapper bg-light-grey">
     <div class="container text-center">
       <div class="row">
-        <div class="col-lg-4 col-sm-12">
-          <div class="booking-detail">
-            <div class="camping-car-picture">
-              <%= image_tag "logocamping.jpg" %>
+        <% @user_camping_cars.each do |camping_car| %>
+          <% camping_car.bookings.each do |booking| %>
+            <div class="col-lg-4 col-sm-12">
+              <div class="booking-detail">
+                <div class="">
+                  <%= image_tag "campingcar.jpg", class: "camping-car-picture" %>
+                </div>
+                <div class="profile-picture">
+                  <%= image_tag "profile.jpg", class: 'avatar-large-bordered' %>
+                </div>
+                <div class="booking-description">
+                  <div class="booking-row">
+                    <p>Modèle : <%= booking.camping_car.car_model %></p>
+                  </div>
+                  <div class="booking-row">
+                    <p> Du <%= booking.check_in %> au <%= booking.check_out %> </p>
+                  </div>
+                  <div class="booking-row">
+                    <p>Capacité de couchage : <%= booking.camping_car.sleep_capacity %> </p>
+                  </div>
+                  <div class="booking-row">
+                    <p> <%= booking.camping_car.price_per_day %> € par jour</p>
+                  </div>
+                  <% if booking.user_review != nil %>
+                    <div class="booking-row">
+                      <p> Note : <%= booking.user_review.rating %></p>
+                    </div>
+                  <% end %>
+                  <% if booking.user_review != nil %>
+                  <div class="booking-row">
+                    <p>Commentaire : <%= booking.user_review.comment %></p>
+                  </div>
+                <% end %>
+                  <div class="booking-row">
+                    <%= link_to "Noter cet utilisateur", new_booking_user_review_path(booking), {class: 'btn btn-primary' } %>
+                  </div>
+                  <div class="booking-row">
+                    <%= link_to "Editer ma camping car", camping_car_path(camping_car), {class: 'btn btn-primary' } %>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="profile-picture">
-              <%= image_tag "profile.jpg", class: 'avatar-large-bordered' %>
-            </div>
-            <div class="booking-description">
-              <div class="booking-row">
-                <%= "Camping car model" %>
-              </div>
-              <div class="booking-row">
-                <%= "Booking dates" %>
-              </div>
-              <div class="booking-row">
-                <%= "Sleep capacity" %>
-              </div>
-              <div class="booking-row">
-                <%= "Total price" %>
-              </div>
-              <div class="booking-row">
-                <%= link_to "Review user", root_path, {class: 'btn btn-primary' } %>
-              </div>
-              <div class="booking-row">
-                <%= link_to "Edit my camping car", root_path, {class: 'btn btn-primary' } %>
-              </div>
-            </div>
-          </div>
-        </div>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
+
 
 <div class="tab-content hidden" id="mycampingcars">
   <h3>put camping cars cards</h3>

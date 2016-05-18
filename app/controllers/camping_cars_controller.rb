@@ -15,6 +15,7 @@ class CampingCarsController < ApplicationController
 
   def create
     @camping_car = CampingCar.new(camping_car_params)
+    @camping_car.user = current_user
     if @camping_car.save
       redirect_to camping_car_path(@camping_car)
     else
