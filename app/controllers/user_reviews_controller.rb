@@ -1,5 +1,7 @@
 class UserReviewsController < ApplicationController
+
   def new
+    set_booking
     @user_review = UserReview.new
   end
 
@@ -13,6 +15,10 @@ class UserReviewsController < ApplicationController
   end
 
   private
+
+  def set_booking
+    @booking = Booking.find(params[:booking_id])
+  end
 
   def user_review_params
     params.require(:user_review).permit(:rating, :comment, :booking_id)
