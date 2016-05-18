@@ -13,6 +13,18 @@
               <p>Nombre de places : <strong><%= @camping_car.capacity_grey_card %></strong></p>
               <p>Nombre de couchages : <strong><%= @camping_car.sleep_capacity %></strong></p>
             <h2>Les reviews</h2>
+              <% @camping_car.camping_car_reviews.each do |review| %>
+              <div class="row">
+                <div class="col-xs-10">
+                  <p><%= review.comment %></p>
+                </div>
+                <div class="col-xs-2">
+                  <% review.rating.to_i.times do %>
+                    <i class= 'fa fa-star reviewStars_starActive'></i>
+                  <% end %>
+                </div>
+              </div>
+              <% end %>
             <div class="actions text-center">
               <%= link_to "Modifier mon camping car", edit_camping_car_path(@camping_car), {class: "btn btn-primary"} %>
               <%= link_to "Supprimer mon camping-car", camping_car_path(@camping_car), method: :delete, :class => "btn btn-primary" %>
@@ -23,7 +35,7 @@
 
       <div class="col-sm-4 hidden-xs hidden-sm">
         <div class="fixed">
-          <div class='col-sm-8 col-sm-offset-2 col-md-offset-0 col-md-12'>
+          <div class='col-sm-12 col-sm-offset-2 col-md-offset-0 col-md-10'>
             <div class="price-per-day">
               <p>A partir de <%= @camping_car.price_per_day %> € par jour</p>
             </div>
