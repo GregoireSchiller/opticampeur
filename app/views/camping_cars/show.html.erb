@@ -5,13 +5,21 @@
         <div class="product-section">
           <%= image_tag "campingcar.jpg", class: "camping-car-picture" %>
           <div class="camping-car-description">
-            <h3><%= @camping_car.car_model %></h3>
-            <h4><%= @camping_car.category %></h4>
+            <div class="row">
+              <div class="col-xs-10">
+                <h3><%= @camping_car.car_model %></h3>
+                <h4><%= @camping_car.category %></h4>
+              </div>
+              <div class="col-xs-2">
+                <p> <%= link_to image_tag("profile.jpg", class: "text-center padding-picture"), user_path(@camping_car.user) %> </p>
+              </div>
+            </div>
           </div>
           <div class="camping-car-details">
             <h2>Le camping-car</h2>
               <p>Nombre de places : <strong><%= @camping_car.capacity_grey_card %></strong></p>
               <p>Nombre de couchages : <strong><%= @camping_car.sleep_capacity %></strong></p>
+            <% if @camping_car.camping_car_reviews != [] %>
             <h2>Les reviews</h2>
               <% @camping_car.camping_car_reviews.each do |review| %>
                 <div class="row">
@@ -28,9 +36,12 @@
                   </div>
                 </div>
               <% end %>
+            <% end %>
             <div class="actions text-center">
-              <%= link_to "Modifier mon camping car", edit_camping_car_path(@camping_car), {class: "btn btn-primary"} %>
-              <%= link_to "Supprimer mon camping-car", camping_car_path(@camping_car), method: :delete, :class => "btn btn-primary" %>
+              <% if current_user != nil && current_user.id == CampingCar.find(params[:id]).user.id.to_i %>
+                <%= link_to "Modifier mon camping car", edit_camping_car_path(@camping_car), {class: "btn btn-primary"} %>
+                <%= link_to "Supprimer mon camping-car", camping_car_path(@camping_car), method: :delete, :class => "btn btn-primary" %>
+              <% end %>
             </div>
           </div>
         </div>

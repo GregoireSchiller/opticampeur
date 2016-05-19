@@ -20,10 +20,11 @@ ActiveRecord::Schema.define(version: 20160519171621) do
     t.string   "total_price"
     t.integer  "camping_car_id"
     t.integer  "user_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                                            null: false
+    t.datetime "updated_at",                                            null: false
     t.date     "check_in"
     t.date     "check_out"
+    t.string   "booking_status", default: "En attente de confirmation"
   end
 
   add_index "bookings", ["camping_car_id"], name: "index_bookings_on_camping_car_id", using: :btree
