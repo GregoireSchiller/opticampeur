@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160519143235) do
+ActiveRecord::Schema.define(version: 20160519153139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,10 +20,11 @@ ActiveRecord::Schema.define(version: 20160519143235) do
     t.string   "total_price"
     t.integer  "camping_car_id"
     t.integer  "user_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                                            null: false
+    t.datetime "updated_at",                                            null: false
     t.date     "check_in"
     t.date     "check_out"
+    t.string   "booking_status", default: "En attente de confirmation"
   end
 
   add_index "bookings", ["camping_car_id"], name: "index_bookings_on_camping_car_id", using: :btree
