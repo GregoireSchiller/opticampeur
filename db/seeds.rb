@@ -76,12 +76,15 @@ for i in 1..131 do
 end
 
 500.times do
+  check_in = Faker::Date.between(2.years.ago, 6.months.from_now)
+  check_out = check_in + (2..21).to_a.sample
   booking = Booking.new({
-    check_in: Faker::Date.between(2.years.ago, 6.months.ago),
-    check_out: Faker::Date.between(6.months.ago, Date.today)
+    check_in: check_in,
+    check_out: check_out
   })
   booking.user = User.order("RANDOM()").first
   booking.camping_car = CampingCar.order("RANDOM()").first
+  booking.total_price = (booking.check_out - booking.check_in).to_i * booking.camping_car.price_per_day.to_i
   booking.save
   user_review = UserReview.new({
     rating: (1..5).to_a.sample,
