@@ -20,8 +20,8 @@
   </div>
 
   <div class="form-actions container">
-    <div><%= f.button :submit, "Sign up" %></div>
+    <div class="col-xs-6 text-right"><%= f.button :submit, "Sign up", class: 'btn btn-primary' %></div>
+    <div class="col-xs-6"><%= render "devise/shared/links" %></div>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>

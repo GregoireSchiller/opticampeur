@@ -15,17 +15,15 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-offset-4 col-sm-4">
-        <div class="form-actions">
-          <%= f.button :submit, "Log in" %>
-        </div>
+      <div class="form-actions">
+        <div class="col-xs-6 text-right"><%= f.button :submit, "Log in", class: 'btn btn-primary' %></div>
+        <div class="col-xs-6"><%= render "devise/shared/links" %></div>
       </div>
     </div>
   <% end %>
 
   <div class="row">
     <div class="col-sm-offset-6 col-sm-4">
-      <%= render "devise/shared/links" %>
     </div>
   </div>
 </div>
