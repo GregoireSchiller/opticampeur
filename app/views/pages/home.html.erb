@@ -1,38 +1,35 @@
-    <div class="AttractiveSection">
-      <div id="carousel-example-generic" class="carousel slide carousel-fade" data-ride="carousel" data-pause="false">
-        <div class="carousel-inner" role="listbox">
-          <div class="item active">
-            <div class="banner" style="background-image:linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%),url(<%= image_url 'homepage/camping_car_depardon.jpg' %>)"></div>
-            <div class="carousel-caption">
-              <h1><strong>Abolis les frontières</strong></h1>
-              <h2>Be limitless</h2>
-            </div>
-          </div>
-          <div class="item">
-            <div class="banner girls" style="background-image:linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%),url(<%= image_url 'homepage/dans_la_caravane.jpg' %>)"></div>
-            <div class="carousel-caption">
-              <h1><strong>Allez, viens dans la caravane</strong></h1>
-              <h2>Chill like a gipsy</h2>
-            </div>
-          </div>
+<div class="AttractiveSection">
+  <div id="carousel-example-generic" class="carousel slide carousel-fade" data-ride="carousel" data-pause="false">
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <div class="banner" style="background-image:linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%),url(<%= image_url 'homepage/camping_car_depardon.jpg' %>)">
         </div>
-        <div class="searchbar-wrapper">
-          <div class="form-container">
-            <form class="form-inline">
-              <div class="form-group" >
-                  <input type="text" class="form-control datepicker">
-                  <input type="text" class="form-control datepicker">
-                  <input type="text" class="form-control">
-                  <button class="btn btn-danger" type= "button" id="search-button">Rechercher</button>
-              </div>
-            </form>
-          </div>
+        <div class="carousel-caption">
+          <h1><strong>Abolis les frontières</strong></h1>
+          <h2>Be limitless</h2>
+        </div>
+      </div>
+      <div class="item">
+        <div class="banner girls" style="background-image:linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%),url(<%= image_url 'homepage/dans_la_caravane.jpg' %>)">
+        </div>
+        <div class="carousel-caption">
+          <h1><strong>Allez, viens dans la caravane</strong></h1>
+          <h2>Chill like a gipsy</h2>
         </div>
       </div>
     </div>
-
-
-
+    <div class="searchbar-wrapper">
+      <div class="form-container">
+        <form action="/search" method="get" class="form-inline">
+          <input type="text" class="form-control datepicker" placeholder="début de location">
+          <input type="text" class="form-control datepicker" placeholder="fin de location">
+          <input type="text" class="form-control" name="search_term" placeholder="ville">
+          <button class="btn btn-danger" type="submit" id="search-button">Rechercher</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
@@ -81,7 +78,7 @@
       <%end%>
     </div>
   </div>
-
+</div>
 
 
 <% content_for(:after_js) do %>
