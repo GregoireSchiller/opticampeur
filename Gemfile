@@ -9,6 +9,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'redis'
 gem 'devise'
 gem 'faker'
+gem 'geocoder'
 
 gem 'sass-rails'
 gem 'jquery-rails'
@@ -19,6 +20,13 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 source "https://rails-assets.org" do
   gem 'rails-assets-bootstrap-datepicker'
+end
+
+gem "coffee-rails"
+gem "gmaps4rails"
+
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
 end
 
 group :development, :test do

@@ -14,7 +14,31 @@ Booking.destroy_all
 UserReview.destroy_all
 CampingCarReview.destroy_all
 
+paris_street = [" rue Paul Albert", " rue Soufflot", " rue Lekain" " rue Solférino", " boulevard Haussmann", " rue de Rennes"]
+lyon_street = [" avenue Jean Jaurès", " rue Garibaldi", " rue du lac", " rue Vauban", " rue du plat"]
+marseille_street = [" boulevard de la libération", " rue Roger Brun", " rue de tivoli", " rue Breteuil", " rue paradis"]
+lille_street = [" rue basse", " rue nationale", " rue de pas", " rue de Roubaix", " rue Faidherbe"]
+bordeaux_street = [" rue Ducau", " rue Ferrere", " rue Segalier", " rue Naujac", " rue Reignier"]
+rouen_street = [" rue Jeanne d'Arc", "rue des Carmes", " rue de la république", " rue rollon", " rue du gros horloge"]
+nantes_street = [" rue Ogée", " rue d'enfer", " rue Fénelon", " rue du roi Albert", " rue du chateau"]
+strasbourg_street = [" rue de la croix", " rue des bateliers", " rue de serruriers", " rue du saumon", " rue de la douane"]
+montpellier_street = [" rue de la loge", " rue de verdun", " rue vallat", " rue joffre", " rue baudin"]
+rennes_street = [" rue de Paris", " rue poullain duparc", " rue Thiers", " rue Kléber", " rue Paul Bert"]
+
+CITIES = {Paris: paris_street,
+  Lyon: lyon_street,
+  Marseille: marseille_street,
+  Lille: lille_street,
+  Bordeaux: bordeaux_street,
+  Rouen: rouen_street,
+  Nantes: nantes_street,
+  Strasbourg: strasbourg_street,
+  Montpellier: montpellier_street,
+  Rennes: rennes_street}
+
 100.times do
+  city = CITIES.keys.sample.to_s
+  street = CITIES[city.to_sym].sample
   user = User.new({
     email: Faker::Internet.email,
     password: Faker::Internet.password(8),
@@ -22,10 +46,10 @@ CampingCarReview.destroy_all
     last_name: Faker::Name.last_name,
     date_of_birth: Faker::Date.between(80.years.ago, 18.years.ago),
     nationality: Faker::Address.country,
-    address: Faker::Address.street_address,
+    address: (1..20).to_a.sample.to_s + street,
     zip_code: Faker::Address.zip_code,
-    city: Faker::Address.city,
-    country: Faker::Address.country,
+    city: city,
+    country: "France",
     phone_number: Faker::PhoneNumber.cell_phone
   })
   user.save
