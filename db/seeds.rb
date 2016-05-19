@@ -8,11 +8,11 @@
 require 'open-uri'
 require 'nokogiri'
 
+UserReview.destroy_all
+CampingCarReview.destroy_all
 User.destroy_all
 CampingCar.destroy_all
 Booking.destroy_all
-UserReview.destroy_all
-CampingCarReview.destroy_all
 
 paris_street = [" rue Paul Albert", " rue Soufflot", " rue Lekain" " rue Solférino", " boulevard Haussmann", " rue de Rennes"]
 lyon_street = [" avenue Jean Jaurès", " rue Garibaldi", " rue du lac", " rue Vauban", " rue du plat"]
@@ -53,6 +53,7 @@ CITIES = {Paris: paris_street,
     phone_number: Faker::PhoneNumber.cell_phone
   })
   user.save
+  puts "user generated"
 end
 
 puts "100 users generated"
