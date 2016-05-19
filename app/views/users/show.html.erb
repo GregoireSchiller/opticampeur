@@ -5,23 +5,40 @@
   <h3> <%= @user.email %> </h3>
 </div>
 
-
 <div class="tabs">
   <a class="tab active" href="#" data-target="#campingcarsibooked">
-    <h3>Camping cars I booked</h3>
+    <h3>Réservations effectuées</h3>
   </a>
   <a class="tab" href="#" data-target="#campingcarsirented">
-    <h3>Camping cars I rented</h3>
+    <h3>Réservations reçues</h3>
   </a>
   <a class="tab" href="#" data-target="#mycampingcars">
-    <h3>My camping cars</h3>
+    <h3>Mes camping cars</h3>
   </a>
 </div>
 
 <div class="tab-content" id="campingcarsibooked">
   <div class="wrapper bg-light-grey">
-    <div class="container text-center">
+    <div class="container">
       <div class="row">
+        <h2 class="text-center">Reviews à propos de <%= @user.first_name %> </h2>
+        <% @user_bookings.each do |booking| %>
+          <div class="row">
+            <div class="col-xs-10">
+              <p><%= booking.user_review.comment %></p>
+            </div>
+            <div class="col-xs-2">
+              <% booking.user_review.rating.to_i.times do %>
+                <i class= 'fa fa-star reviewStars_starActive'></i>
+              <% end %>
+                <% (5 - booking.user_review.rating.to_i).times do %>
+                <i class= 'fa fa-star reviewStars_starNotActive'></i>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <div class="row text-center">
+        <h2>Réservations </h2>
         <% @user_bookings.each do |booking| %>
           <div class="col-lg-4 col-sm-12">
             <div class="booking-detail">
@@ -44,19 +61,11 @@
                 <div class="booking-row">
                   <p> <%= booking.camping_car.price_per_day %> € par jour</p>
                 </div>
-                <% if booking.user_review != nil %>
-                  <div class="booking-row">
-                    <p> Note : <%= booking.user_review.rating %></p>
-                  </div>
-                <% end %>
-                <% if booking.user_review != nil %>
-                  <div class="booking-row">
-                    <p>Commentaire : <%= booking.user_review.comment %></p>
-                  </div>
-                <% end %>
+                <% if current_user.id == params[:id] %>
                 <div class="booking-row">
                   <%= link_to "Noter cette camping car", new_booking_camping_car_review_path(booking), {class: 'btn btn-primary' } %>
                 </div>
+                <% end %>
               </div>
             </div>
           </div>
