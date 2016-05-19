@@ -9,6 +9,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'redis'
 gem 'devise'
 gem 'faker'
+gem 'country_select'
 
 gem 'sass-rails'
 gem 'jquery-rails'
