@@ -3,6 +3,9 @@
   border-radius: 4px;
   color: #7AAFB7;
   text-align: center;
+  position: fixed;
+  right: 80px;
+  top: 164px;
 }
 
 
@@ -17,7 +20,17 @@
 }
 
 .checkbock-grid {
-  display: block;
+  margin-top: 10px;
+  display: flex;
   float: left;
   width: 100%;
+}
+
+.checkbock-grid .col-xs-6 {
+text-align: left;
+}
+
+
+.slider {
+  margin-bottom: 20px;
 }
