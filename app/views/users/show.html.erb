@@ -1,5 +1,4 @@
 <div class="wrapper bg-light-grey text-center padded-show information">
-<<<<<<< HEAD
   <div class="profile_picture" style="background-image: url(<%= current_user.picture %>)"></div>
   <h3> <%= @user.first_name %> <%= @user.last_name %> </h3>
   <h4> <%= @user.email %> </h4>
@@ -54,10 +53,10 @@
                 <div class="col-lg-4 col-sm-12 card-container-small">
                   <div class="booking-detail">
                     <div class="">
-                      <%= link_to image_tag("campingcar.jpg", class: "camping-car-picture"), camping_car_path(booking.camping_car) %>
+                      <%= link_to image_tag(booking.camping_car.photo, class: "camping-car-picture"), camping_car_path(booking.camping_car) %>
                     </div>
                     <div class="profile-picture">
-                      <%= link_to image_tag("profile.jpg", class: "avatar-large-bordered"), user_path(booking.camping_car.user) %>
+                      <%= link_to image_tag(booking.camping_car.user.picture, class: "avatar-large-bordered"), user_path(booking.camping_car.user) %>
                     </div>
                     <div class="booking-description">
                       <div class="booking-row">
@@ -117,7 +116,7 @@
                       <%= image_tag "campingcar.jpg", class: "camping-car-picture" %>
                     </div>
                     <div class="profile-picture">
-                      <%= link_to image_tag("profile.jpg", class: "avatar-large-bordered"), user_path(booking.user) %>
+                      <%= link_to image_tag(booking.user.picture, class: "avatar-large-bordered"), user_path(booking.user) %>
                     </div>
                     <div class="booking-description">
                       <div class="booking-row">
@@ -180,8 +179,7 @@
         <% @user.camping_cars.each do |camping_car| %>
           <div class="col-xs-12 col-sm-4">
             <div class="card">
-              <div class="card-image" style="background-image: url(<%=image_url("homepage/cc" + (1..15).to_a.sample.to_s + ".jpg") %>);">
-                <img src="<%=image_url("homepage/u" + (1..15).to_a.sample.to_s + ".jpg") %>" class="avatar">
+              <div class="card-image" style="background-image: url(<%= image_path(camping_car.photo) %>)">
                 <div class="card-price text-center">
                   <p><strong><%=camping_car.price_per_day%></strong><%='€/jour'%></p>
                   <p>de location</p>

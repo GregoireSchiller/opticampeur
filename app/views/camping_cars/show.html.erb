@@ -15,7 +15,7 @@
                 <h4><%= @camping_car.category %></h4>
               </div>
               <div class="col-xs-2">
-                <p> <%= link_to image_tag("profile.jpg", class: "text-center padding-picture"), user_path(@camping_car.user) %> </p>
+                <p> <%= link_to image_tag(@camping_car.user.picture, class: "profile_picture text-center padding-picture"), user_path(@camping_car.user) %> </p>
               </div>
             </div>
           </div>
