@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-8">
-        <h2 class="text-center" style="margin-bottom: 35px">Camping-cars disponibles à <%= @search_term %></h2>
+        <h2 class="text-center" style="margin-bottom: 35px">Camping-cars disponibles <%= @search_term %></h2>
         <% @camping_cars_available.each do |camping_car| %>
           <div class="col-xs-12 col-sm-6">
             <div class="card">
@@ -40,18 +40,29 @@
             <%= label_tag 'Prix' %><br>
             <%= number_field_tag :price, params[:price], class: 'slider' %><br>
             <%= label_tag 'Categorie' %><br>
-            <div class="checkbock-grid">
-              <%= check_box_tag :category_profile, params[:category_profile] ? "on" : nil, params[:category_profile] == "on" %> Camping-car Profilé
-              <%= check_box_tag :category_capucine, params[:category_capucine] ? "on" : nil, params[:category_capucine] == "on"%> Camping-car Capucine
-              <%= check_box_tag :category_integral, params[:category_integral] ? "on" : nil, params[:category_integral] == "on"%> Camping-car Intégral
-              <%= check_box_tag :category_fourgon, params[:category_fourgon] ? "on" : nil, params[:category_fourgon] == "on"%> Fourgon aménagé
-              <%= check_box_tag :category_van, params[:category_van] ? "on" : nil, params[:category_van] == "on"%> Van
-              <%= check_box_tag :category_autre, params[:category_autre] ? "on" : nil, params[:category_autre] == "on"%> Autre<br>
+            <div class="checkbock-grid form-group">
+                <div class="row">
+                  <div class="col-xs-6">
+                      <%= check_box_tag :category_profile, params[:category_profile] ? "on" : nil, params[:category_profile] == "on" %> Camping-car Profilé <br>
+                      <%= check_box_tag :category_capucine, params[:category_capucine] ? "on" : nil, params[:category_capucine] == "on"%> Camping-car Capucine <br>
+                      <%= check_box_tag :category_integral, params[:category_integral] ? "on" : nil, params[:category_integral] == "on"%>
+                       Camping-car Intégral
+                  </div>
+                  <div class="col-xs-6">
+                      <%= check_box_tag :category_fourgon, params[:category_fourgon] ? "on" : nil, params[:category_fourgon] == "on"%> Fourgon aménagé<br>
+                      <%= check_box_tag :category_van, params[:category_van] ? "on" : nil, params[:category_van] == "on"%> Van <br>
+                      <%= check_box_tag :category_autre, params[:category_autre] ? "on" : nil, params[:category_autre] == "on"%> Autre<br>
+                  </div>
+                </div>
             </div>
-            <%= label_tag 'Nombre de Places' %><br>
-            <%= text_field_tag :capacity, nil, placeholder: "2+" %><br>
-            <%= label_tag 'Ville' %><br>
-            <%= text_field_tag :city, nil, placeholder: "Choisis la ville" %><br>
+            <div class="form-group">
+              <%= label_tag 'Nombre de Places' %><br>
+              <%= text_field_tag :capacity, nil, placeholder: "2+", class: 'form-control' %><br>
+            </div>
+            <div class="form-group">
+              <%= label_tag 'Ville' %><br>
+              <%= text_field_tag :city, nil, placeholder: "Choisis la ville", class: 'form-control' %><br>
+            </div>
             <%= submit_tag :search, class: "btn btn-danger"  %>
           <%end%>
         </div>
