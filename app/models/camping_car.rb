@@ -1,4 +1,5 @@
 class CampingCar < ActiveRecord::Base
+  mount_uploader :photo, PhotoUploader
   CATEGORIES = ["Camping-car Profilé", "Campin-car Capucine", "Camping-car Intégral", "Fourgon aménagé", "Van", "Autre"]
   belongs_to :user
   has_many :bookings, dependent: :destroy

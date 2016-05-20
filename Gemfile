@@ -12,6 +12,7 @@ gem 'faker'
 gem 'geocoder'
 gem 'omniauth-facebook'
 gem 'cloudinary'
+gem 'carrierwave'
 
 gem 'sass-rails'
 gem 'jquery-rails'

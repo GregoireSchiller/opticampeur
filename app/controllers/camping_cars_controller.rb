@@ -39,7 +39,7 @@ class CampingCarsController < ApplicationController
   private
 
   def camping_car_params
-    params.require(:camping_car).permit(:capacity_grey_card, :plate, :brand, :category, :car_model, :sleep_capacity, :fuel, :consumption, :km, :gear_type, :entry_into_circulation, :original_value, :registration_country, :price_per_day)
+    params.require(:camping_car).permit(:capacity_grey_card, :plate, :brand, :category, :car_model, :sleep_capacity, :fuel, :consumption, :km, :gear_type, :entry_into_circulation, :original_value, :registration_country, :price_per_day, :photo, :photo_cache)
   end
 
   def set_camping_car
