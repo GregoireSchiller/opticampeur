@@ -1,8 +1,8 @@
 // Create a paragraph for the new review. But hide it.
 // var new_status = $("<%= @booking.booking_status %>").hide();
 // Add it to the DOM, at the end of the existing reviews. It's still hidden.
-$('#booking-status').html("<strong><%= @booking.booking_status %></strong>");
-$('.submit-again').hide();
+$('#booking-status-<%=@booking.id%>').html("<strong><%= @booking.booking_status %></strong>");
+$('.submit-again-<%=@booking.id%>').hide();
 
 // Show the new review with an animation!
 // new_status.slideDown();
