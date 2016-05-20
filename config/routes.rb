@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :camping_cars
 
-  resources :bookings, only: [:create, :destroy] do
+  resources :bookings, only: [:create, :destroy, :update] do
     resources :user_reviews, only: [:new, :create]
     resources :camping_car_reviews, only: [:new, :create]
   end
