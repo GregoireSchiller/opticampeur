@@ -4,5 +4,6 @@
 //= require bootstrap-datepicker
 //= require underscore
 //= require gmaps/google
+//= require seiyria-bootstrap-slider
 //= require_tree .
 

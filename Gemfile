@@ -11,6 +11,7 @@ gem 'devise'
 gem 'faker'
 gem 'geocoder'
 gem 'omniauth-facebook'
+gem 'cloudinary'
 
 gem 'sass-rails'
 gem 'jquery-rails'
@@ -22,6 +23,7 @@ gem 'autoprefixer-rails'
 
 source "https://rails-assets.org" do
   gem 'rails-assets-bootstrap-datepicker'
+  gem 'rails-assets-seiyria-bootstrap-slider'
 end
 
 gem "coffee-rails"
