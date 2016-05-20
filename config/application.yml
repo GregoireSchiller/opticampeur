@@ -1,15 +1,7 @@
 development:
   FB_ID: "239136976451881"
   FB_SECRET: "e5793a514c5af6e4c9b6f06c475bc965"
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-​
-=======
-
->>>>>>> 5999fcdef3d48bcfac2d443f2ff66d2339b24261
->>>>>>> 1935d5422f06bf42e14c4102abefcecdead8b2ad
 production:
   FB_ID: "239134913118754"
   FB_SECRET: "ba93ca81f862425d1b2101c86b0a3a29"
