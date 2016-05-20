@@ -11,19 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160519103549) do
+ActiveRecord::Schema.define(version: 20160519171621) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
-    t.string   "check_in"
-    t.string   "check_out"
     t.string   "total_price"
     t.integer  "camping_car_id"
     t.integer  "user_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                                            null: false
+    t.datetime "updated_at",                                            null: false
+    t.date     "check_in"
+    t.date     "check_out"
+    t.string   "booking_status", default: "En attente de confirmation"
   end
 
   add_index "bookings", ["camping_car_id"], name: "index_bookings_on_camping_car_id", using: :btree
@@ -96,6 +97,15 @@ ActiveRecord::Schema.define(version: 20160519103549) do
     t.string   "phone_number"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "rails"
+    t.string   "g"
+    t.string   "migration"
+    t.string   "AddOmniauthToUsers"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "picture"
+    t.string   "token"
+    t.datetime "token_expiry"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

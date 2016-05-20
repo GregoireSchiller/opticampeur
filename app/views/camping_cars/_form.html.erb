@@ -1,8 +1,14 @@
-<%= simple_form_for @camping_car do |f| %>
-  <%= f.input :car_model, input_html: { placeholder: "Modèle" } %>
-  <%= f.input :category, collection: CampingCar::CATEGORIES, include_blank: "Sélectionnez une catégorie" %>
-  <%= f.input :sleep_capacity, input_html: { placeholder: "Nombre de couchages" } %>
-  <%= f.input :capacity_grey_card, input_html: { placeholder: "Nombre de places assises" } %>
-  <%= f.input :price_per_day, input_html: { placeholder: "Prix journalier" } %>
-  <%= f.submit class: "btn btn-primary" %>
-<% end %>
+<h2 style="text-align: center;">Ajoutez votre camping-car</h2>
+
+<div class="wrapper">
+  <%= simple_form_for @camping_car do |f| %>
+    <div class="container">
+      <div class="col-sm-offset-4 col-sm-4"><%= f.input :car_model, input_html: { placeholder: "Modèle" }, label: false %></div>
+      <div class="col-sm-offset-4 col-sm-4"><%= f.input :category, collection: CampingCar::CATEGORIES, include_blank: "Sélectionnez une catégorie", label: false %></div>
+      <div class="col-sm-offset-4 col-sm-4"><%= f.input :sleep_capacity, input_html: { placeholder: "Nombre de couchages" }, label: false %></div>
+      <div class="col-sm-offset-4 col-sm-4"><%= f.input :capacity_grey_card, input_html: { placeholder: "Nombre de places assises" }, label: false %></div>
+      <div class="col-sm-offset-4 col-sm-4"><%= f.input :price_per_day, input_html: { placeholder: "Prix journalier" }, label: false %></div>
+      <div class="col-sm-offset-4 col-sm-4 text-center"><%= f.button :submit, "Ajouter ce camping-car", class: "btn btn-primary" %></div>
+    </div>
+  <% end %>
+</div>

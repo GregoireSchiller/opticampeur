@@ -27,3 +27,6 @@
 .bg-light-grey {
   background: #F5F5F5;
 }
+.global-wrapper {
+  min-height: calc(100vh - 123px - 70px);
+}

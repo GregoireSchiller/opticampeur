@@ -1,27 +1,27 @@
-<h2 style="text-align: center;">Sign up</h2>
+<h2 style="text-align: center;">Inscription</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs container">
-    <div class="col-xs-6"><%= f.input :first_name, required: true, autofocus: true %></div>
-    <div class="col-xs-6"><%= f.input :last_name, required: true, autofocus: true %></div>
-    <div class="col-xs-6"><%= f.input :date_of_birth, :as => :date, :start_year => Date.today.year - 18,
-:end_year => 1900, :order => [ :day, :month, :year], :required => true, autofocus: true %></div>
-    <div class="col-xs-6"><%= f.input :nationality, required: true, autofocus: true %></div>
-    <div class="col-xs-6"><%= f.input :address, required: true, autofocus: true %></div>
-    <div class="col-xs-6"><%= f.input :zip_code, required: true, autofocus: true %></div>
-    <div class="col-xs-6"><%= f.input :city, required: true, autofocus: true %></div>
-    <div class="col-xs-6"><%= f.input :country, required: true, autofocus: true %></div>
-    <div class="col-xs-6"><%= f.input :phone_number, required: true, autofocus: true %></div>
-    <div class="col-xs-6"><%= f.input :email, required: true, autofocus: true %></div>
-    <div class="col-xs-6"><%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %></div>
-    <div class="col-xs-6"><%= f.input :password_confirmation, required: true %></div>
+    <div class="col-xs-6"><%= f.input :first_name, required: true, autofocus: true, placeholder: "Prénom", label: false %></div>
+    <div class="col-xs-6"><%= f.input :last_name, required: true, autofocus: true, placeholder: "Nom", label: false %></div>
+    <div class="col-xs-6 flexbox"><div class="flex-item">Date de naissance :</div><div class="flex-item"><%= f.input :date_of_birth, :as => :date, :start_year => Date.today.year - 18,
+:end_year => 1900, :order => [ :day, :month, :year], :required => true, autofocus: true, placeholder: "Date de naissance", label: false %></div></div>
+    <div class="col-xs-6"><%= f.input :nationality, required: true, autofocus: true, placeholder: "Nationalité", label: false %></div>
+    <div class="col-xs-6"><%= f.input :address, required: true, autofocus: true, placeholder: "Adresse", label: false %></div>
+    <div class="col-xs-6"><%= f.input :zip_code, required: true, autofocus: true, placeholder: "Code postal", label: false %></div>
+    <div class="col-xs-6"><%= f.input :city, required: true, autofocus: true, placeholder: "Ville", label: false %></div>
+    <div class="col-xs-6"><%= f.input :country, required: true, autofocus: true, placeholder: "Pays", label: false %></div>
+    <div class="col-xs-6"><%= f.input :phone_number, required: true, autofocus: true, placeholder: "Numéro de téléphone", label: false %></div>
+    <div class="col-xs-6"><%= f.input :email, required: true, autofocus: true, placeholder: "E-mail", label: false %></div>
+    <div class="col-xs-6"><%= f.input :password, required: true, hint: ("#{@minimum_password_length} caractères minimum" if @minimum_password_length), placeholder: "Mot de passe", label: false %></div>
+    <div class="col-xs-6"><%= f.input :password_confirmation, required: true, placeholder: "Confirmer le mot de passe", label: false %></div>
   </div>
 
-  <div class="form-actions container">
-    <div><%= f.button :submit, "Sign up" %></div>
+  <div class="form-actions container flexbox">
+    <div class="col-xs-6 text-right flex-item" id="btn-inscription"><%= f.button :submit, "S'inscrire", class: 'btn btn-primary' %></div>
+    <div class="col-xs-6 flex-item" id="btn-shared-links"><%= render "devise/shared/links" %></div>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
