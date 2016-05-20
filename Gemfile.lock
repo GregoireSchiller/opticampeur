@@ -152,7 +152,8 @@ GEM
       sprockets-rails
     rails-assets-bootstrap-datepicker (1.6.1)
       rails-assets-jquery (>= 1.7.1)
-    rails-assets-jquery (2.2.3)
+    rails-assets-jquery (2.1.1)
+    rails-assets-seiyria-bootstrap-slider (7.0.3)
     rails-assets-underscore (1.8.3)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
@@ -230,6 +231,7 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.2.6)
   rails-assets-bootstrap-datepicker!
+  rails-assets-seiyria-bootstrap-slider!
   rails-assets-underscore!
   rails_12factor
   redis

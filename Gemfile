@@ -22,6 +22,7 @@ gem 'autoprefixer-rails'
 
 source "https://rails-assets.org" do
   gem 'rails-assets-bootstrap-datepicker'
+  gem 'rails-assets-seiyria-bootstrap-slider'
 end
 
 gem "coffee-rails"
