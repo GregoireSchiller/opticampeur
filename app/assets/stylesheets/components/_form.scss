@@ -9,3 +9,22 @@
 .btn-primary {
   border-radius: 4px;
 }
+
+.flexbox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-item {
+  flex: 0 0 45%;
+}
+
+.form-group.date {
+  margin-bottom: 0;
+  text-align: right;
+}
+
+#btn-shared-links {
+  margin-left: -60px;
+}
