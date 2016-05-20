@@ -2,7 +2,9 @@
   <div class="profile_picture">
     <%= image_tag "profile.jpg", class: 'avatar-very-large-bordered' %>
   </div>
-  <h3> <%= @user.email %> </h3>
+  <h3> <%= @user.first_name %> <%= @user.last_name %> </h3>
+  <h4> <%= @user.email %> </h4>
+  <h4> <%= @user.city %> </h4>
 </div>
 
 <div class="wrapper bg-light-grey">
@@ -50,7 +52,7 @@
               <h4>Vous n'avez effectué aucune réservation</h4>
             <% else %>
               <% @user_bookings.each do |booking| %>
-                <div class="col-lg-4 col-sm-12">
+                <div class="col-lg-4 col-sm-12 card-container-small">
                   <div class="booking-detail">
                     <div class="">
                       <%= image_tag "campingcar.jpg", class: "camping-car-picture" %>
@@ -79,7 +81,11 @@
                       </div>
                       <% if booking.check_out < Date.today %>
                         <div class="booking-row">
+                        <% if CampingCarReview.find_by(booking_id: booking.id) == nil %>
                           <%= link_to "Noter cette camping car", new_booking_camping_car_review_path(booking), {class: 'btn btn-primary' } %>
+                        <% else %>
+                          <p>Avis déjà donné</p>
+                        <% end %>
                         </div>
                       <% end %>
                     </div>
@@ -106,13 +112,13 @@
                 <h4> Vous n'avez reçu aucune réservation </h4>
               <% else %>
                 <% bookings.each do |booking| %>
-                <div class="col-lg-4 col-sm-12">
+                <div class="col-lg-4 col-sm-12 card-container">
                   <div class="booking-detail">
                     <div class="">
                       <%= image_tag "campingcar.jpg", class: "camping-car-picture" %>
                     </div>
                     <div class="profile-picture">
-                      <%= image_tag "profile.jpg", class: 'avatar-large-bordered' %>
+                      <%= link_to image_tag("profile.jpg", class: "avatar-large-bordered"), user_path(booking.user) %>
                     </div>
                     <div class="booking-description">
                       <div class="booking-row">
@@ -131,17 +137,17 @@
                         <% if booking.check_out < Date.today %>
                           <% booking.booking_status = "Passée" %>
                         <% end %>
-                        <p id='booking-status'><strong><%= booking.booking_status %></strong></p>
+                        <p id='booking-status-<%=booking.id%>'><strong><%= booking.booking_status %></strong></p>
                       </div>
 
                       <% if booking.booking_status == "En attente de confirmation" %>
-                        <div class="booking-row submit-again">
+                        <div class="booking-row submit-again-<%=booking.id%>">
                           <%= simple_form_for(booking, method: :patch, remote: true) do |f| %>
                             <%= f.input :booking_status, as: :hidden, input_html: { value: "Confirmée" } %>
                             <%= f.button :submit, "Valider cette réservation", class: 'btn btn-primary'  %>
                           <% end %>
                         </div>
-                        <div class="booking-row submit-again">
+                        <div class="booking-row submit-again-<%=booking.id%>">
                           <%= simple_form_for(booking, method: :patch, remote: true) do |f| %>
                             <%= f.input :booking_status, as: :hidden, input_html: { value: "Refusée" } %>
                             <%= f.button :submit, "Refuser cette réservation", class: 'btn btn-primary'  %>
@@ -152,7 +158,11 @@
 
                       <% if booking.check_out < Date.today %>
                         <div class="booking-row">
-                          <%= link_to "Noter cet utilisateur", new_booking_user_review_path(booking), {class: 'btn btn-primary' } %>
+                          <% if UserReview.find_by(booking_id: booking.id) == nil %>
+                            <%= link_to "Noter cet utilisateur", new_booking_user_review_path(booking), {class: 'btn btn-primary' } %>
+                          <% else %>
+                           <p>Avis déjà donné</p>
+                          <% end %>
                         </div>
                       <% end %>
                     </div>
