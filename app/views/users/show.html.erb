@@ -1,6 +1,6 @@
 <div class="wrapper bg-light-grey text-center padded-show information">
   <div class="profile_picture">
-    <%= image_tag "profile.jpg", class: 'avatar-very-large-bordered' %>
+    <%= image_tag @user.picture, class: 'avatar-very-large-bordered' %>
   </div>
   <h3> <%= @user.first_name %> <%= @user.last_name %> </h3>
   <h4> <%= @user.email %> </h4>
@@ -55,10 +55,10 @@
                 <div class="col-lg-4 col-sm-12 card-container-small">
                   <div class="booking-detail">
                     <div class="">
-                      <%= image_tag "campingcar.jpg", class: "camping-car-picture" %>
+                      <%= link_to image_tag("campingcar.jpg", class: "camping-car-picture"), camping_car_path(booking.camping_car) %>
                     </div>
                     <div class="profile-picture">
-                      <%= image_tag "profile.jpg", class: 'avatar-large-bordered' %>
+                      <%= link_to image_tag("profile.jpg", class: "avatar-large-bordered"), user_path(booking.camping_car.user) %>
                     </div>
                     <div class="booking-description">
                       <div class="booking-row">

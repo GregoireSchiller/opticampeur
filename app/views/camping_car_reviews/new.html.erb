@@ -1,6 +1,14 @@
-<%= simple_form_for [@booking, @camping_car_review] do |f| %>
-  <%= f.input :rating, :collection => 1..5, include_blank: "Donnez une note" %>
-  <%= f.input :comment, input_html: { placeholder: "Écrivez votre commentaire" } %>
-  <%= f.input :booking_id, :as => :hidden, :input_html => { :value => params[:booking_id] } %>
-  <%= f.submit class: "btn btn-primary" %>
-<% end %>
+<div class="wrapper bg-light-grey padded", style='height: 80vh'>
+
+<div class="container">
+<h2 style="text-align: center; padding-bottom: 30px">Donnez votre avis sur ce camping car</h2>
+
+
+  <%= simple_form_for [@booking, @camping_car_review] do |f| %>
+    <div class="col-sm-offset-4 col-sm-4"> <%= f.input :rating, label: false, :collection => 1..5, include_blank: "Donnez une note" %></div>
+    <div class="col-sm-offset-4 col-sm-4"> <%= f.input :comment, label: false, input_html: { placeholder: "Écrivez votre commentaire" } %></div>
+    <%= f.input :booking_id, :as => :hidden, :input_html => { :value => params[:booking_id] } %>
+    <div class="col-sm-offset-4 col-sm-4 text-center"> <%= f.button :submit, "Noter l'utilisateur", class: "btn btn-primary" %> </div>
+  <% end %>
+</div>
+</div>
