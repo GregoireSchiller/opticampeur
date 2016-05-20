@@ -8,6 +8,8 @@
       <div class="col-sm-offset-4 col-sm-4"><%= f.input :sleep_capacity, input_html: { placeholder: "Nombre de couchages" }, label: false %></div>
       <div class="col-sm-offset-4 col-sm-4"><%= f.input :capacity_grey_card, input_html: { placeholder: "Nombre de places assises" }, label: false %></div>
       <div class="col-sm-offset-4 col-sm-4"><%= f.input :price_per_day, input_html: { placeholder: "Prix journalier" }, label: false %></div>
+      <div class="col-sm-offset-4 col-sm-4"><%= f.input :photo %></div>
+      <div class="col-sm-offset-4 col-sm-4"><%= f.input :photo_cache, as: :hidden %></div>
       <div class="col-sm-offset-4 col-sm-4 text-center"><%= f.button :submit, "Ajouter ce camping-car", class: "btn btn-primary" %></div>
     </div>
   <% end %>

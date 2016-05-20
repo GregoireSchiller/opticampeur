@@ -1,6 +1,5 @@
 <div class="wrapper bg-light-grey text-center padded-show information">
-  <div class="profile_picture">
-    <%= image_tag "profile.jpg", class: 'avatar-very-large-bordered' %>
+  <div class="profile_picture" style="background-image: url(<%= current_user.picture %>)">
   </div>
   <h3> <%= @user.email %> </h3>
 </div>

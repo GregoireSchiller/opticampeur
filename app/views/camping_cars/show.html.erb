@@ -3,7 +3,11 @@
     <div class="row">
       <div class="col-md-8">
         <div class="product-section">
-          <%= image_tag "campingcar.jpg", class: "camping-car-picture" %>
+          <% if @camping_car.photo.url.nil? %>
+            <%= image_tag "campingcar.jpg", class: "camping-car-picture" %>
+          <% else %>
+            <%= cl_image_tag @camping_car.photo, height: 562, width: 750, crop: :fill %>
+          <% end %>
           <div class="camping-car-description">
             <div class="row">
               <div class="col-xs-10">
