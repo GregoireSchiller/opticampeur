@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :new, :create, :edit, :update, :destroy]
 
-  get '/usershow', to: 'pages#usershow', as: 'usershow'
+  #get '/usershow', to: 'pages#usershow', as: 'usershow'
 
   get 'search', to: 'pages#search'
 
